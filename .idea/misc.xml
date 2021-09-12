@@ -3,7 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1381340579710145" />
+        <entry key="../../../../layout/custom_preview.xml" value="0.125" />
+        <entry key="app/src/main/res/drawable/ic_baseline_live_tv_24.xml" value="0.24307692307692308" />
+        <entry key="app/src/main/res/drawable/ic_baseline_local_movies_24.xml" value="0.24307692307692308" />
+        <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.24444444444444444" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/detail_activity.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/detail_fragment.xml" value="0.2545710267229255" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/fragment_peliculas.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_series.xml" value="0.13333333333333333" />
+        <entry key="app/src/main/res/layout/item_pelicula.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/item_video.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/prueba_fragment.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/splash_activity.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/video_fragment.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.24479166666666666" />
       </map>
     </option>
   </component>

@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">PeliSeriesApp</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_peliculas">Peliculas</string>
+    <string name="title_series">Series</string>
+    <string name="title_videos">Videos</string>
+    <string name="detalle_genero">Género(s):</string>
+    <string name="detalle_fecha">Fecha estreno:</string>
+    <string name="detalle_pagina">Página web:</string>
+    <string name="detalle_popularidad">Popularidad:</string>
+    <string name="detalle_votos">Calificación:</string>
 </resources>
