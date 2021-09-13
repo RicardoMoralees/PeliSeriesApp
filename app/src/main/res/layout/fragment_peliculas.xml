@@ -6,20 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".view.fragments.PeliculasFragment">
 
-    <TextView
-        android:id="@+id/text_pelicula"
-        android:layout_width="match_parent"
+    <ProgressBar
+        android:id="@+id/progress_peliculas"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:indeterminate="true"
+        app:layout_constraintTop_toBottomOf="@id/text_pelicula"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_sin_resultados"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_pelicula"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_not_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textColor="@color/azul_primary"
+            android:text="@string/sin_resultados"
+            android:layout_marginTop="20dp"
+            android:textSize="32sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_tv_off"
+            app:layout_constraintTop_toBottomOf="@id/tv_not_found"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/text_pelicula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/spinnerDropDownItemStyle"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:textAlignment="center"
         android:textSize="24sp"
         android:text="@string/title_peliculas"
-        android:textColor="@color/black"
+        android:textColor="@color/azul_primary"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,6 +71,7 @@
         android:id="@+id/recycler_peliculas"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_pelicula"

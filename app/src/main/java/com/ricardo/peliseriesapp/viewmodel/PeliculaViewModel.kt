@@ -15,4 +15,8 @@ class PeliculaViewModel : ViewModel() {
         return peliculas
     }
 
+    fun getPeliculasPopulares(): LiveData<List<Pelicula>> {
+        peliculas = PeliculaProvider.getPeliculasPopulares()
+        return peliculas
+    }
 }

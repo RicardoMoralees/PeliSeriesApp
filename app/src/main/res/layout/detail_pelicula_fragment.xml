@@ -5,7 +5,7 @@
     android:id="@+id/detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragments.DetailFragment">
+    tools:context=".view.fragments.DetailPeliculaFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_detalle_portada_pelicula"
@@ -195,12 +195,12 @@
                     android:textAlignment="center"
                     android:text="@string/detalle_votos"
                     android:textStyle="bold|italic" />
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_detalle_votos_pelicula"
-                    android:layout_width="match_parent"
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/rating_detalle_votos_pelicula"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
+                    style="@style/customRatingBar"
+                    android:layout_gravity="center"
                     android:textSize="14sp"
                     />
             </LinearLayout>

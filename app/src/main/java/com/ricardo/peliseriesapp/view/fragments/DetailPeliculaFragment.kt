@@ -10,29 +10,29 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.ricardo.peliseriesapp.R
-import com.ricardo.peliseriesapp.databinding.DetailFragmentBinding
+import com.ricardo.peliseriesapp.databinding.DetailPeliculaFragmentBinding
 import com.ricardo.peliseriesapp.viewmodel.DetailViewModel
 
-class DetailFragment : Fragment() {
+class DetailPeliculaFragment : Fragment() {
 
     private var idPelicula: Int = 0
 
     companion object {
-        fun newInstance(id: Int): DetailFragment {
-            val fragment = DetailFragment()
+        fun newInstance(id: Int): DetailPeliculaFragment {
+            val fragment = DetailPeliculaFragment()
             fragment.idPelicula = id
             return fragment
         }
     }
 
     private lateinit var viewModel: DetailViewModel
-    private lateinit var binding: DetailFragmentBinding
+    private lateinit var binding: DetailPeliculaFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DetailFragmentBinding.inflate(layoutInflater,container, false)
+        binding = DetailPeliculaFragmentBinding.inflate(layoutInflater,container, false)
         return binding.root
     }
 
@@ -53,12 +53,12 @@ class DetailFragment : Fragment() {
             binding.tvDetallePaginaPelicula.movementMethod = LinkMovementMethod()
             binding.tvDetalleFechaPelicula.text = pelicula.release_date
 
-            var generos: String = ""
+            var generos = ""
             pelicula.genres.forEach { genre ->  generos += genre.name.plus(", ")}
             binding.tvDetalleGenerosPelicula.text = generos
 
             binding.tvDetallePopularidadPelicula.text = pelicula.popularity.toString()
-            binding.tvDetalleVotosPelicula.text = pelicula.vote_average.toString()
+            binding.ratingDetalleVotosPelicula.rating = (pelicula.vote_average / 2f)
         })
     }
 }

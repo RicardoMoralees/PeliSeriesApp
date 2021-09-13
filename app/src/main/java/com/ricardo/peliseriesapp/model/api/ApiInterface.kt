@@ -1,9 +1,7 @@
 package com.ricardo.peliseriesapp.model.api
 
-import com.ricardo.peliseriesapp.model.Pelicula
-import com.ricardo.peliseriesapp.model.PeliculaResponse
-import com.ricardo.peliseriesapp.model.SerieResponse
-import com.ricardo.peliseriesapp.model.VideoResponse
+import com.ricardo.peliseriesapp.BuildConfig
+import com.ricardo.peliseriesapp.model.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -31,17 +29,31 @@ interface ApiInterface {
     @GET("tv/on_the_air?api_key=cac0e19a99992e43098b093252d62868&language=es-MX")
     fun getPlayingNowSeries() : Call<SerieResponse>
 
+    @GET("tv/popular?api_key=cac0e19a99992e43098b093252d62868&language=es-MX")
+    fun getPopularSeries() : Call<SerieResponse>
+
+    @GET("tv/{id}?api_key=cac0e19a99992e43098b093252d62868&language=es-MX")
+    fun getDetalleSerie(@Path("id") id: Int) : Call<Serie>
+
+    @GET("tv/{id}}/videos?api_key=cac0e19a99992e43098b093252d62868&language=es-MX%2Cen-US")
+    fun getSerieVideos(@Path("id") id: Int) : Call<VideoResponse>
+
     companion object {
 
         var BASE_URL = "https://api.themoviedb.org/3/"
 
         fun create() : ApiInterface {
 
-            val interceptor = HttpLoggingInterceptor()
-            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
-            val okHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
+            val levelType: HttpLoggingInterceptor.Level = if (BuildConfig.BUILD_TYPE.contentEquals("debug"))
+                HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
 
-            val retrofit = Retrofit.Builder().client(okHttpClient)
+            val logging = HttpLoggingInterceptor()
+            logging.setLevel(levelType)
+
+            val okhttpClient = OkHttpClient.Builder()
+            okhttpClient.addInterceptor(logging)
+
+            val retrofit = Retrofit.Builder().client(okhttpClient.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL)
                 .build()

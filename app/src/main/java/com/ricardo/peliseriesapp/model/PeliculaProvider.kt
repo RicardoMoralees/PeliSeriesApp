@@ -34,6 +34,27 @@ object PeliculaProvider {
             return peliculas
         }
 
+    fun getPeliculasPopulares(): MutableLiveData<List<Pelicula>> {
+        val call = ApiInterface.create().getPopularMovies()
+
+        call.enqueue(object : Callback<PeliculaResponse> {
+            override fun onResponse(
+                call: Call<PeliculaResponse>?,
+                response: Response<PeliculaResponse>?
+            ) {
+                if (response?.body() != null)
+                    peliculas.value = response.body()!!.results
+            }
+
+            override fun onFailure(call: Call<PeliculaResponse>?, t: Throwable?) {
+                Log.e("CallError", t?.message.toString())
+                peliculas.value = listOf()
+            }
+        })
+
+        return peliculas
+    }
+
     fun getDetallePelicula(id: Int): MutableLiveData<Pelicula> {
         val call = ApiInterface.create().getDetallePelicula(id)
 
@@ -69,7 +90,7 @@ object PeliculaProvider {
 
             override fun onFailure(call: Call<VideoResponse>?, t: Throwable?) {
                 Log.e("CallError", t?.message.toString())
-                peliculas.value = listOf()
+                videos.value = listOf()
             }
         })
 

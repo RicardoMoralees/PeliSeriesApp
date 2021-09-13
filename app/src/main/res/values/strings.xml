@@ -3,9 +3,25 @@
     <string name="title_peliculas">Peliculas</string>
     <string name="title_series">Series</string>
     <string name="title_videos">Videos</string>
+    <string name="sin_resultados">Sin resultados :(</string>
     <string name="detalle_genero">Género(s):</string>
     <string name="detalle_fecha">Fecha estreno:</string>
     <string name="detalle_pagina">Página web:</string>
     <string name="detalle_popularidad">Popularidad:</string>
     <string name="detalle_votos">Calificación:</string>
+    <string name="detalle_episodios">Episodios:</string>
+    <string name="detalle_temporadas">Temporadas:</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="sin_internet">Sin Internet</string>
+    <string name="internet_message">Verifica si estas conectado a alguna red para poder continuar</string>
+
+    <string-array name="peliculas_categorias">
+        <item>Peliculas actuales</item>
+        <item>Peliculas populares</item>
+    </string-array>
+
+    <string-array name="series_categorias">
+        <item>Series actuales</item>
+        <item>Series populares</item>
+    </string-array>
 </resources>

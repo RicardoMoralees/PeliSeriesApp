@@ -17,4 +17,8 @@ class SeriesViewModel : ViewModel() {
         return series
     }
 
+    fun getSeriesPopulares(): LiveData<List<Serie>> {
+        series = SeriesProvider.getSeriesPopulares()
+        return series
+    }
 }
